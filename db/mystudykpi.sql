@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS account (
 	accountEmail varchar(128) NOT NULL UNIQUE,
 	accountPwd varchar(255) NOT NULL,
 	accountRoles int NOT NULL DEFAULT 2 COMMENT '1 - Admin, 2 - User',
-	registrationDate date NOT NULL DEFAULT CURRENT_DATE
+	registrationDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Data entries for account

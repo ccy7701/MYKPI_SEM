@@ -1,9 +1,9 @@
 <?php
     // mysqli_connect is used for database connection
-    $databaseHost = 'localhost';
-    $databaseUsername = 'root';
-    $databasePassword = '';
-    $databaseName = 'mystudykpi';
+    $databaseHost = getenv('DB_HOST') ?: 'localhost';
+    $databaseUsername = getenv('DB_USERNAME') ?: 'root';
+    $databasePassword = getenv('DB_PASSWORD') ?: '';
+    $databaseName = getenv('DB_DATABASE') ?: 'mystudykpi';
 
     $conn = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
