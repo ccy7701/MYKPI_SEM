@@ -1,12 +1,11 @@
 <?php
     session_start();
-    include("include/config.php");
+
+    require_once "include/config.php";
 ?>
 
 <!DOCTYPE HTML>
-<html lang="en">
-
-<html>
+<html lang="en" xml:lang="en">
 
 <head>
     <title>Edit Personal Info | MyStudyKPI </title>
@@ -30,6 +29,20 @@
             width: 100%;
             display: block;
         }
+        button.icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: inherit;
+            padding: 0;
+            color: inherit;
+        }
+        button.icon:focus {
+            outline: none;
+        }
+        .center-align {
+            text-align: center;
+        }
         @media screen and (max-width: 600px) {
             #editPersonalInfo-container {
                 padding-left: 10%;
@@ -41,16 +54,21 @@
 
 <body>
     <header>
-        <img class="header" src="images/aboutmeheader.png">
+        <img class="header" src="images/aboutmeheader.png" alt="About Me Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png"></a>
+        <a href="index.php" class="logo">
+            <img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo">
+        </a>
         <a href="aboutme.php" class="active">About Me</a>
         <a href="kpimodule.php" class="tabs">MyKPI Indicator Module</a>
         <a href="activitieslist.php" class="tabs">Activities List</a>
         <a href="challenges.php" class="tabs">Challenges and Future Plans</a>
         <a href="logout.php" class="tabs">Logout</a>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
+        
+        <button type="button" class="icon" onclick="adjustTopnav()" aria-label="Toggle Navigation">
+            <i class="fa fa-bars"></i>
+        </button>
     </nav>
     <main>
         <h3 style="text-align: center">Edit Personal Info</h3>
@@ -169,11 +187,11 @@
                 <p>Upload new profile image here:</p>
                 <input id="pfptoupload" type="file" name="pfpToUpload" accept=".jpg, .jpeg, .png"><br><br>
 
-                <center>
+                <div class="center-align">
                     <input id="btnedit" name="editsubmit" type="submit" value="EDIT">
                     <input id="btnedit" name="editreset" type="reset" value="RESET">
-                    <input id="btnedit" name="editcancel" type="button" onClick="redirect('aboutme.php')" value="CANCEL">
-                </center>
+                    <input id="btnedit" name="editcancel" type="button" onclick="redirect('aboutme.php')" value="CANCEL">
+                </div>
             </form>
         </div>
         <br>
