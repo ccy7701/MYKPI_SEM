@@ -80,7 +80,7 @@ define('NOT_FILLED', 'Not filled yet');
         <img class="header" src="images/aboutmeheader.png" alt="About Me Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Top Navigation Button">
+        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Top Navigation Button"></a>
         <a href="aboutme.php" class="active">About Me</a>
         <a href="kpimodule.php" class="tabs">MyKPI Indicator Module</a>
         <a href="activitieslist.php" class="tabs">Activities List</a>
@@ -125,7 +125,7 @@ define('NOT_FILLED', 'Not filled yet');
         <div class="row">
             <div class="col-left">
                 <h4>Profile Picture</h4>
-                <form id="image-container" style="max-width: 100%; margin; 0 auto; border: 1px solid black; padding-top: 5px;">
+                <form id="image-container" style="max-width: 100%; margin: 0 auto; border: 1px solid black; padding-top: 5px;">
                     <tr>
                         <img src="<?=$profileImagePath;?>" style="width: 50%;" alt="User Profile"></image>
                     </tr>

@@ -4,7 +4,7 @@
 ?>
 
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" xml:lang="en">
 
 <html>
 

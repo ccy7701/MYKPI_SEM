@@ -20,7 +20,8 @@
             background-color: #D9DADB;
             color: black;
             width: 50%;
-            transition: background-color 0.1s; color 0.1s;
+            transition: background-color 0.1s;
+            color: 0.1s;
         }
         .block:hover {
             background-color: #555555;

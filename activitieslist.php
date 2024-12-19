@@ -4,17 +4,6 @@
 
     // Define constants for reusable HTML strings and queries
     define("ACTIVITY_QUERY", "SELECT * FROM activity WHERE accountID='");
-    define("TABLE_HEADER", "
-        <tr>
-            <th>No.</th>
-            <th>Session</th>
-            <th>Level</th>
-            <th>Details</th>
-            <th>Remarks</th>
-            <th>Image</th>
-            <th>&nbsp;</th>
-        </tr>
-    ");
     define("TABLE_ROW_START", "<tr><td>");
     define("SESSION_YEAR", "</td><td>Sem ");
     define("YEAR_LABEL", " Year ");
@@ -255,14 +244,22 @@
                 <br>
                 <div id="activitiesTable-container">
                     <table id="activitiesTable">
+                        <!-- Table header -->
+                        <tr>
+                            <th>No.</th>
+                            <th>Session</th>
+                            <th>Level</th>
+                            <th>Details</th>
+                            <th>Remarks</th>
+                            <th>Image</th>
+                            <th>&nbsp;</th>
+                        </tr>
                         <?php
                             // Fetch activities
                             $fetchActivitiesQuery = ACTIVITY_QUERY . $accountID . "' AND activityType='1'";
                             $activitiesResult = mysqli_query($conn, $fetchActivitiesQuery);
                             
                             if (mysqli_num_rows($activitiesResult) > 0) {
-                                echo TABLE_HEADER;
-
                                 $rowIndex = 1;
                                 while ($row = mysqli_fetch_assoc($activitiesResult)) {
                                     $editID = $removeID = $imageID = $row["activityID"];
@@ -294,7 +291,6 @@
                                 }
                             } else {
                                 // No activities
-                                echo TABLE_HEADER;
                                 echo "
                                     <tr>
                                         <td colspan='6'>No activities have been added yet.</td>
@@ -310,22 +306,20 @@
                 <br>
                 <div id="activitiesTable-container">
                     <table id="activitiesTable">
+                        <!-- Table header -->
+                        <tr>
+                            <th>No.</th>
+                            <th>Session</th>
+                            <th>Level</th>
+                            <th>Details</th>
+                            <th>Remarks</th>
+                            <th>Image</th>
+                            <th>&nbsp;</th>
+                        </tr>
                         <?php
                             $fetchClubsQuery = "SELECT * FROM activity WHERE accountID='".$accountID."' AND activityType='2'";
                             $clubsResult = mysqli_query($conn, $fetchClubsQuery);
                             if (mysqli_num_rows($clubsResult) > 0) {
-                                echo "
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                        <th>&nbsp;</th>
-                                    </tr>
-                                ";
-
                                 $rowIndex = 1;
 
                                 while ($row = mysqli_fetch_assoc($clubsResult)) {
@@ -374,14 +368,6 @@
                             else {  // if the query returns no rows
                                 echo "
                                     <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                    </tr>
-                                    <tr>
                                         <td colspan='6'>No clubs-related activities have been added yet.</td>
                                     </tr>
                                 ";
@@ -395,22 +381,19 @@
                 <br>
                 <div id="activitiesTable-container">
                     <table id="activitiesTable">
+                        <tr>
+                            <th>No.</th>
+                            <th>Session</th>
+                            <th>Level</th>
+                            <th>Details</th>
+                            <th>Remarks</th>
+                            <th>Image</th>
+                            <th>&nbsp;</th>
+                        </tr>
                         <?php
                             $fetchAssociationsQuery = "SELECT * FROM activity WHERE accountID='".$accountID."' AND activityType='3'";
                             $associationsResult = mysqli_query($conn, $fetchAssociationsQuery);
                             if (mysqli_num_rows($associationsResult) > 0) {
-                                echo "
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                        <th>&nbsp;</th>
-                                    </tr>
-                                ";
-
                                 $rowIndex = 1;
 
                                 while ($row = mysqli_fetch_assoc($associationsResult)) {
@@ -459,14 +442,6 @@
                             else {  // if the query returns no rows
                                 echo "
                                     <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                    </tr>
-                                    <tr>
                                         <td colspan='6'>No associations-related activities have been added yet.</td>
                                     </tr>
                                 ";
@@ -480,22 +455,19 @@
                 <br>
                 <div id="activitiesTable-container">
                     <table id="activitiesTable">
+                        <tr>
+                            <th>No.</th>
+                            <th>Session</th>
+                            <th>Level</th>
+                            <th>Details</th>
+                            <th>Remarks</th>
+                            <th>Image</th>
+                            <th>&nbsp;</th>
+                        </tr>
                         <?php
                             $fetchCompetitionsQuery = "SELECT * FROM activity WHERE accountID='".$accountID."' AND activityType='4'";
                             $competitionsResult = mysqli_query($conn, $fetchCompetitionsQuery);
                             if (mysqli_num_rows($competitionsResult) > 0) {
-                                echo "
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                        <th>&nbsp;</th>
-                                    </tr>
-                                ";
-
                                 $rowIndex = 1;
 
                                 while ($row = mysqli_fetch_assoc($competitionsResult)) {
@@ -544,15 +516,7 @@
                             else {  // if the query returns no rows
                                 echo "
                                     <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                    </tr>
-                                    <tr>
-                                        <td colspan='6'>No associations-related activities have been added yet.</td>
+                                        <td colspan='6'>No competitions-related activities have been added yet.</td>
                                     </tr>
                                 ";
                             }
