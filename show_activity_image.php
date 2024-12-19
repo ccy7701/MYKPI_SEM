@@ -39,7 +39,7 @@
                 mysqli_close($conn);
             }
         ?>
-        <img src="<?=$activityImagePath?>" alt="ActivityImage">
+        <img src="<?=$activityImagePath?>" alt="Activity">
     </main>
     <footer>
 

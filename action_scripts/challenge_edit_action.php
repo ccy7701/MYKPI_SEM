@@ -53,7 +53,7 @@
 
                 mysqli_close($conn);
             }
-            else if (isset($_FILES["challengeImageToUpload"]) && $_FILES["challengeImageToUpload"]["error"] == UPLOAD_ERR_OK) {
+            elseif (isset($_FILES["challengeImageToUpload"]) && $_FILES["challengeImageToUpload"]["error"] == UPLOAD_ERR_OK) {
                 $challengeImageUploadFlag = 1;
                 $targetDirectory = "uploads/challenges/";
                 $filetmp = $_FILES["challengeImageToUpload"];
