@@ -6,8 +6,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<html>
-
 <head>
     <title>Activities List | MyStudyKPI </title>
     <meta charset="utf8">

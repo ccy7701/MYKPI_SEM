@@ -6,8 +6,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<html>
-
 <head>
     <title>Edit Challenge Record | MyStudyKPI </title>
     <script src="../sitejavascript.js"></script>

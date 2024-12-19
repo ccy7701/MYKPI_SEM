@@ -6,8 +6,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<html>
-
 <head>
     <title>MyKPI Indicator Module | MyStudyKPI </title>
     <meta charset="utf8">

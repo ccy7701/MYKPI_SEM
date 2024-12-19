@@ -8,8 +8,6 @@ define('NOT_FILLED', 'Not filled yet');
 <!DOCTYPE HTML>
 <html lang="en" xml:lang="en">
 
-<html>
-
 <head>
     <title>About Me | MyStudyKPI </title>
     <meta charset="utf8">

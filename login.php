@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<html>
-
 <head>
     <title>Login | MyStudyKPI </title>
     <meta charset="utf8">

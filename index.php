@@ -6,8 +6,6 @@
 
 <html lang="en">
 
-<html>
-
 <head>
     <title>Home | MyStudyKPI </title>
     <meta charset="utf8">
