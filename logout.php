@@ -5,4 +5,3 @@
         unset($_SESSION["studentName"]);
         header("location: index.php");
     }
-?>

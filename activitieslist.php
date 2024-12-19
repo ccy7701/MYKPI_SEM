@@ -279,7 +279,7 @@
                                         default: $levelOutput = "";
                                     }
 
-                                    echo TABLE_ROW_START . $rowIndex . SESSION_YEAR . $row["activitySem"] . YEAR_LABEL . $row["activityYear"] . ROW_CELL_START . 
+                                    echo TABLE_ROW_START . $rowIndex . SESSION_YEAR . $row["activitySem"] . YEAR_LABEL . $row["activityYear"] . ROW_CELL_START .
                                         $levelOutput . ROW_CELL_START . $row["activityDetails"] . ROW_CELL_START . $row["activityRemarks"];
 
                                     // Image cell

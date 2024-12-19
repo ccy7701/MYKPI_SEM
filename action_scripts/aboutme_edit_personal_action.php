@@ -32,9 +32,9 @@
             // IF THERE IS NO NEW IMAGE
             if (isset($_FILES["pfpToUpload"]) && $_FILES["pfpToUpload"]["name"] == "") {
                 // Update the database without a new image
-                $pushToDBQuery = "UPDATE profile 
-                                  SET username = ?, program = ?, intakeBatch = ?, phoneNumber = ?, 
-                                      mentor = ?, profileState = ?, profileAddress = ?, motto = ? 
+                $pushToDBQuery = "UPDATE profile
+                                  SET username = ?, program = ?, intakeBatch = ?, phoneNumber = ?,
+                                      mentor = ?, profileState = ?, profileAddress = ?, motto = ?
                                   WHERE accountID = ?";
             
                 $stmt = mysqli_prepare($conn, $pushToDBQuery);
@@ -48,7 +48,7 @@
                     echo "<script>popup(\"Oops. Something went wrong: " . mysqli_error($conn) . "\", \"../aboutme_edit_personal.php\");</script>";
                 }
                 mysqli_stmt_close($stmt);
-            } 
+            }
             elseif (isset($_FILES["pfpToUpload"]) && $_FILES["pfpToUpload"]["error"] == UPLOAD_ERR_OK) {
                 $pfpUploadFlag = 1;
                 $targetDirectory = "uploads/profile_images/";
@@ -88,9 +88,9 @@
                     // Update the profile image path in the database
                     $imgName = $target . "_" . $pfpFileName;
                     $fullPath = $targetDirectory . $imgName;
-                    $updateQuery = "UPDATE profile 
-                                    SET username = ?, program = ?, intakeBatch = ?, phoneNumber = ?, 
-                                        mentor = ?, profileState = ?, profileAddress = ?, motto = ?, 
+                    $updateQuery = "UPDATE profile
+                                    SET username = ?, program = ?, intakeBatch = ?, phoneNumber = ?,
+                                        mentor = ?, profileState = ?, profileAddress = ?, motto = ?,
                                         profileImagePath = ?
                                     WHERE accountID = ?";
                     $stmt = mysqli_prepare($conn, $updateQuery);

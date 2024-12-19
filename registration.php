@@ -102,10 +102,10 @@
         }
     </script>
     <header>
-        <img class="header" src="images/registrationheader.png">
+        <img class="header" src="images/registrationheader.png" alt="Registration Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png"></a>
+        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo"></a>
         <a href="login.php" class="active">Login</a>
         <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
     </nav>
@@ -129,7 +129,7 @@
                 <p style="margin: 0; font-size: 13px;">• At least one special character</p><br>
 
                 <label for="reenterPassword">Reenter Password (*)</label><br>
-                <input id="fieldreg" name="reenterPassword" type="password" required><br> 
+                <input id="fieldreg" name="reenterPassword" type="password" required><br>
 
                 <div id="center-content" style="text-align: center">
                     <input id="btnreg" name="signupsubmit" type="submit" value="SUBMIT">

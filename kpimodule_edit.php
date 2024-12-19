@@ -60,10 +60,10 @@
 
 <body>
     <header>
-        <img class="header" src="images/kpimoduleheader.png">
+        <img class="header" src="images/kpimoduleheader.png" alt="KPI Module Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png"></a>
+        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo"></a>
         <a href="aboutme.php" class="tabs">About Me</a>
         <a href="kpimodule.php" class="active">MyKPI Indicator Module</a>
         <a href="activitieslist.php" class="tabs">Activities List</a>
