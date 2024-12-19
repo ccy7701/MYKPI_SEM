@@ -182,6 +182,15 @@
             </form>
             <br>
             <table id="challengesTable">
+                <tr>
+                    <th>No.</th>
+                    <th>Session</th>
+                    <th>Challenge Details</th>
+                    <th>Future Plan</th>
+                    <th>Remarks</th>
+                    <th>Image</th>
+                    <th>&nbsp;</th>
+                </tr>
                 <p>Showing all search results for: "<?=$search;?>" <a id="close" title="Close" href="challenges.php"><i class="fa fa-times"></i></a></p>
                 <?php
                     if ($search != "") {
@@ -207,15 +216,7 @@
 
                         if (mysqli_num_rows($result) > 0) {
                             echo "
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Session</th>
-                                    <th>Challenge Details</th>
-                                    <th>Future Plan</th>
-                                    <th>Remarks</th>
-                                    <th>Image</th>
-                                    <th>&nbsp;</th>
-                                </tr>
+
                             ";
 
                             $rowIndex = 1;
@@ -256,14 +257,6 @@
                         }
                         else {  // if the query returns no rows
                             echo "
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Session</th>
-                                    <th>Challenge Details</th>
-                                    <th>Future Plan</th>
-                                    <th>Remarks</th>
-                                    <th>Image</th>
-                                </tr>
                                 <tr>
                                     <td colspan='6'>No challenges match your search.</td>
                                 <tr>

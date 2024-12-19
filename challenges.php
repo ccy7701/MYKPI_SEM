@@ -147,7 +147,7 @@
         <img class="header" src="images/challengesheader.png" alt="Challenges Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo></a>
+        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo"></a>
         <a href="aboutme.php" class="tabs">About Me</a>
         <a href="kpimodule.php" class="tabs">MyKPI Indicator Module</a>
         <a href="activitieslist.php" class="tabs">Activities List</a>
@@ -172,18 +172,19 @@
             </form>
             <br>
             <table id="challengesTable">
+                <tr>
+                    <th>No.</th>
+                    <th>Session</th>
+                    <th>Challenge Details</th>
+                    <th>Future Plan</th>
+                    <th>Remarks</th>
+                    <th>Image</th>
+                    <th>&nbsp;</th>
+                </tr>
                 <?php
                     if (mysqli_num_rows($challengesResult) > 0) {
                         echo "
-                            <tr>
-                                <th>No.</th>
-                                <th>Session</th>
-                                <th>Challenge Details</th>
-                                <th>Future Plan</th>
-                                <th>Remarks</th>
-                                <th>Image</th>
-                                <th>&nbsp;</th>
-                            </tr>
+
                         ";
 
                         $rowIndex = 1;
@@ -224,14 +225,6 @@
                     }
                     else {  // if the query returns no rows
                         echo "
-                            <tr>
-                                <th>No.</th>
-                                <th>Session</th>
-                                <th>Challenge Details</th>
-                                <th>Future Plan</th>
-                                <th>Remarks</th>
-                                <th>Image</th>
-                            </tr>
                             <tr>
                                 <td colspan='6'>No challenges have been added yet.</td>
                             </tr>

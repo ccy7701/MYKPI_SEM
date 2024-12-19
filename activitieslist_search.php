@@ -133,6 +133,16 @@
         <p style="padding-left: 2%; padding-right: 2%">Showing all search results for: "<?=$search;?>" <a id="close" title="Close" href="activitieslist.php"><i class="fa fa-times"></i></a></p>
         <div id="activitiesTable-container">
             <table id="activitiesTable">
+                <tr>
+                    <th>No.</th>
+                    <th>Session</th>
+                    <th>Type</th>
+                    <th>Level</th>
+                    <th>Details</th>
+                    <th>Remarks</th>
+                    <th>Image</th>
+                    <th>&nbsp;</th>
+                </tr>
                 <?php
                     if ($search != "") {
                         // split the search string into individual words
@@ -156,19 +166,6 @@
                         $result = mysqli_query($conn, $searchQuery);
 
                         if (mysqli_num_rows($result) > 0) {
-                            echo "
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Session</th>
-                                    <th>Type</th>
-                                    <th>Level</th>
-                                    <th>Details</th>
-                                    <th>Remarks</th>
-                                    <th>Image</th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                            ";
-
                             $rowIndex = 1;
 
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -226,15 +223,6 @@
                         }
                         else {  // if the query returns no rows
                             echo "
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Session</th>
-                                    <th>Type</th>
-                                    <th>Level</th>
-                                    <th>Details</th>
-                                    <th>Remarks</th>
-                                    <th>Image</th>
-                                </tr>
                                 <tr>
                                     <td colspan='6'>No activities match your search.</td>
                                 </tr>
