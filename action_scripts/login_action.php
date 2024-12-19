@@ -34,7 +34,7 @@
             // why not (password_verify($loginPassword, $row["accountPwd"])) {}?
             if (password_verify($_POST["loginpassword"], $row["accountPwd"])) {
                 echo "Login was successful.";
-                // bind the current session to 
+                // bind the current session to
                 $_SESSION["UID"] = $row["accountID"];
                 $_SESSION["userName"] = $row["matricNumber"];
                 // set log-in time

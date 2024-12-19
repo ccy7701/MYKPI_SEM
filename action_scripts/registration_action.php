@@ -83,7 +83,7 @@
                         echo "ERROR: ".$pushToProfileQuery."<br>".mysqli_error($conn);
                     }
 
-                    $pushToIndicatorQuery = "INSERT INTO indicator (indicatorSem, indicatorYear, indicatorCGPA, indicatorLeadership, indicatorGraduateAim, indicatorProfCert, indicatorEmployability, indicatorMobProg, accountID) VALUES 
+                    $pushToIndicatorQuery = "INSERT INTO indicator (indicatorSem, indicatorYear, indicatorCGPA, indicatorLeadership, indicatorGraduateAim, indicatorProfCert, indicatorEmployability, indicatorMobProg, accountID) VALUES
                         (1, 1, 0.00, 0, 'On Time', 0, 1, 0, $lastInsertedID),
                         (2, 1, 0.00, 0, 'On Time', 0, 1, 0, $lastInsertedID),
                         (1, 2, 0.00, 0, 'On Time', 0, 1, 0, $lastInsertedID),

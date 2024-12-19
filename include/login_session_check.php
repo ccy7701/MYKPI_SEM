@@ -16,4 +16,4 @@
             <a href='login.php' class='tabs'>Login</a>
         ";
     }
-?>
+

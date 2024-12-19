@@ -50,7 +50,7 @@
 
 <body>
     <header>
-        <img class="header" src="images/indexheader2.png">
+        <img class="header" src="images/indexheader2.png" alt="Index Header">
     </header>
     <nav class="topnav" id="myTopnav">
         <?php

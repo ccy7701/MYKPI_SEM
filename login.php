@@ -15,10 +15,10 @@
 
 <body>
     <header>
-        <img class="header" src="images/loginheader.png">
+        <img class="header" src="images/loginheader.png" alt="Login Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png"></a>
+        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo"></a>
         <a href="login.php" class="active">Login</a>
         <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
     </nav>
