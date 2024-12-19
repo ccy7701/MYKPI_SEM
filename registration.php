@@ -20,6 +20,13 @@
             font-size: 18px;
             font-family: Jost, monospace;
         }
+        button.icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font: inherit;
+        }
     </style>
 </head>
 
@@ -107,7 +114,7 @@
     <nav class="topnav" id="myTopnav">
         <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo"></a>
         <a href="login.php" class="active">Login</a>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
+        <button type="button" class="icon" onclick="adjustTopnav()" aria-label="Adjust Top Navigation"></button>
     </nav>
     <main>
         <h4 style="text-align: center;">Complete this form before accessing the MyStudyKPI system. Required fields are marked with (*)</h4>

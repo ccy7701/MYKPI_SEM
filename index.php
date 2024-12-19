@@ -40,6 +40,13 @@
             margin-right: 20px;
             font-size: 18px;
         }
+        button.icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font: inherit;
+        }
         @media screen and (max-width: 720px) {  /* CSS when pages are resized to smaller or for mobile screen */
             .block {
                 width: 75%;
@@ -56,7 +63,7 @@
         <?php
             include("include/login_session_check.php");
         ?>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
+        <button type="button" class="icon" onclick="adjustTopnav()" aria-label="Adjust Top Navigation"></button>
     </nav>
     <main>
         <div id="center-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
