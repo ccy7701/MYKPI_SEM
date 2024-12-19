@@ -1,5 +1,5 @@
 <?php
-    include("../include/config.php");
+    include __DIR__ . "/../include/config.php";
 ?>
 
 <!DOCTYPE HTML>
@@ -31,7 +31,6 @@
                         popup('ERROR: Passwords do not match. Please try again.', '../registration.php')
                     </script>
                 ";
-                die("Passwords do not match.");
             }
 
             // validation for whether matricNumber already exists
@@ -74,7 +73,7 @@
                     $lastInsertedID = mysqli_insert_id($conn);
 
                     $pushToProfileQuery = "INSERT INTO profile (username, program, intakeBatch, phoneNumber, mentor, profileState, profileAddress, motto, profileImagePath, accountID)
-                    VALUES ('', '', '', '', '', '', '', '', 'uploads/profile_images/default.png', '$lastInsertedID');";
+                    VALUES ('', '', NULL, '', '', '', '', '', 'uploads/profile_images/default.png', '$lastInsertedID');";
 
                     if (mysqli_query($conn, $pushToProfileQuery)) {
                         // echo "New user profile created successfully."
