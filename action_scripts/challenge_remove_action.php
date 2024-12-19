@@ -5,9 +5,7 @@
 
 <!DOCTYPE HTML>
 <html lang="en">
-
-<html>
-
+    
 <head>
     <title>Challenge Remove Action | MyStudyKPI </title>
     <meta charset="utf8">

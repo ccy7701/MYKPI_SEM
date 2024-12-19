@@ -11,9 +11,7 @@
 
 <!DOCTYPE HTML>
 <html lang="en">
-
-<html>
-
+    
 <head>
     <title>Challenges and Future Plans | MyStudyKPI </title>
     <meta charset="utf8">

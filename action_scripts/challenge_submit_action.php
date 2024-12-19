@@ -5,9 +5,7 @@
 
 <!DOCTYPE HTML>
 <html lang="en">
-
-<html>
-
+    
 <head>
     <title>Challenge Submit Action | MyStudyKPI </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

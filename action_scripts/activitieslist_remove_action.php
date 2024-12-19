@@ -6,8 +6,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<html>
-
 <head>
     <title>Activity Remove Action | MyStudyKPI </title>
     <meta charset="utf8">

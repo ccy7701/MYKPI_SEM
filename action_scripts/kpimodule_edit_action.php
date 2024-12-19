@@ -6,8 +6,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<html>
-
 <head>
     <title>Edit Indicator Record</title>
     <script src="../sitejavascript.js"></script>
