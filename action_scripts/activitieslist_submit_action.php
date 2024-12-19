@@ -52,7 +52,7 @@
                     ";
                 }
             }
-            else if (isset($_FILES["activityImageToUpload"]) && $_FILES["activityImageToUpload"]["error"] == UPLOAD_ERR_OK) {
+            elseif (isset($_FILES["activityImageToUpload"]) && $_FILES["activityImageToUpload"]["error"] == UPLOAD_ERR_OK) {
                 // rationale: it may be possible that a user has several challenges that share a common image file name
                 // in that case fetching the activityID would help differentiate between the images
                 // the flow would go: (1) push the text data (2) fetch the row for this text data (3) upload the image

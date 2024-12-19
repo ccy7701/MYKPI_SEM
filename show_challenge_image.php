@@ -39,7 +39,7 @@
                 mysqli_close($conn);
             }
         ?>
-        <img src="<?=$challengeImagePath?>" alt="ChallengeImage">
+        <img src="<?=$challengeImagePath?>" alt="Challenge">
     </main>
     <footer>
 

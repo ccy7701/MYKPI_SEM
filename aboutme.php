@@ -129,7 +129,7 @@ define('NOT_FILLED', 'Not filled yet');
                 <h4>Profile Picture</h4>
                 <form id="image-container" style="max-width: 100%; margin; 0 auto; border: 1px solid black; padding-top: 5px;">
                     <tr>
-                        <img src="<?=$profileImagePath;?>" style="width: 50%;" alt="User Profile Image"></image>
+                        <img src="<?=$profileImagePath;?>" style="width: 50%;" alt="User Profile"></image>
                     </tr>
                 </form>
             </div>

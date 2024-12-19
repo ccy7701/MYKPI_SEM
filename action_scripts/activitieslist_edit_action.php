@@ -54,7 +54,7 @@
     
                 mysqli_close($conn);
             }
-            else if (isset($_FILES["activityImageToUpload"]) && $_FILES["activityImageToUpload"]["error"] == UPLOAD_ERR_OK) {
+            elseif (isset($_FILES["activityImageToUpload"]) && $_FILES["activityImageToUpload"]["error"] == UPLOAD_ERR_OK) {
                 $activityImageUploadFlag = 1;
                 $targetDirectory = "uploads/activities/";
                 $filetmp = $_FILES["activityImageToUpload"];
