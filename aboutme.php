@@ -1,10 +1,12 @@
 <?php
-    session_start();
-    include("include/config.php");
+session_start();
+include_once "include/config.php";
+
+define('NOT_FILLED', 'Not filled yet');
 ?>
 
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" xml:lang="en">
 
 <html>
 
@@ -64,21 +66,29 @@
             background-color: #333333;
             color: white;
         }
+
+        button.icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font: inherit;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <img class="header" src="images/aboutmeheader.png">
+        <img class="header" src="images/aboutmeheader.png" alt="About Me Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png"></a>
+        <img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Top Navigation Button">
         <a href="aboutme.php" class="active">About Me</a>
         <a href="kpimodule.php" class="tabs">MyKPI Indicator Module</a>
         <a href="activitieslist.php" class="tabs">Activities List</a>
         <a href="challenges.php" class="tabs">Challenges and Future Plans</a>
         <a href="logout.php" class="tabs">Logout</a>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
+        <button type="button" class="icon" onclick="adjustTopnav()" aria-label="Adjust Top Navigation"></button>
     </nav>
     <main style="flex: 1;">
         <?php
@@ -119,12 +129,12 @@
                 <h4>Profile Picture</h4>
                 <form id="image-container" style="max-width: 100%; margin; 0 auto; border: 1px solid black; padding-top: 5px;">
                     <tr>
-                        <img src="<?=$profileImagePath;?>" style="width: 50%;"></image>
+                        <img src="<?=$profileImagePath;?>" style="width: 50%;" alt="User Profile Image"></image>
                     </tr>
                 </form>
             </div>
             <div class="col-right">
-                <?php  
+                <?php
                     // this block is to determine what to output for Program
                     $programOutput = '';
                     switch ($program) {
@@ -136,55 +146,72 @@
                         default: $programOutput = "";
                     }
                 ?>
-                <table id='tblprofile' width="100%">
-                    <caption><h4>Personal Info</h4></caption>
-                        <tr>
-                            <td>Name</td>
-                            <td><?php echo ($username != '') ? $username : "Not filled yet"; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Matric Number</td>
-                            <td><?=$matricNumber;?></td>
-                        </tr>
-                        <tr>
-                            <td>Program</td>
-                            <td><?php echo ($programOutput != '') ? $programOutput : "Not filled yet"; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><?=$accountEmail;?></td>
-                        </tr>
-                        <tr>
-                            <td>Intake Batch</td>
-                            <td><?php echo ($intakeBatch != 0) ? $intakeBatch : "Not filled yet"; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Phone Number</td>
-                            <td><?php echo ($phoneNumber != '') ? $phoneNumber : "Not filled yet"; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Mentor</td>
-                            <td><?php echo ($mentor != '') ? $mentor : "Not filled yet"; ?></td>
-                        </tr>
-                        <tr>
-                            <td>State of Origin</td>
-                            <td><?php echo ($profileState != '') ? $profileState : "Not filled yet"; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td><?php echo ($profileAddress != '') ? $profileAddress : "Not filled yet"; ?></td>
-                        </tr>
-                </table>
+                <table id="tblprofile" style="width: 100%;">
+    <caption><h4>Personal Info</h4></caption>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td><?php echo ($username != '') ? $username : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>Matric Number</td>
+                <td><?= !empty($matricNumber) ? $matricNumber : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>Program</td>
+                <td><?php echo ($programOutput != '') ? $programOutput : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><?= !empty($accountEmail) ? $accountEmail : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>Intake Batch</td>
+                <td><?php echo ($intakeBatch != 0) ? $intakeBatch : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><?php echo ($phoneNumber != '') ? $phoneNumber : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>Mentor</td>
+                <td><?php echo ($mentor != '') ? $mentor : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>State of Origin</td>
+                <td><?php echo ($profileState != '') ? $profileState : NOT_FILLED; ?></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><?php echo ($profileAddress != '') ? $profileAddress : NOT_FILLED; ?></td>
+            </tr>
+        </tbody>
+    </table>
                 <br>
-                <table id='tblprofile' width='100%'>
+                <table id="tblprofile" style="width: 100%;">
                     <caption><h4>Study Motto</h4></caption>
-                    <tr>
-                        <td style="text-align: center"><?php echo ($motto != '') ? $motto : "Not filled yet"; ?></td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Study Motto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">
+                                <?php echo ($motto != '') ? $motto : NOT_FILLED; ?>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
                 <br>
                 <div id="center-container" style="text-align: center; width: 100%;">
-                    <div id="center-content" style="">
+                    <div id="center-content"></div>
                         <input onclick="redirect('aboutme_edit_personal.php')" id="btneditpersonal" type="button" name="btneditpersonal" value="Edit Details">
                     </div>
                 </div>

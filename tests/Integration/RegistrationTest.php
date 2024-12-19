@@ -4,19 +4,30 @@ use PHPUnit\Framework\TestCase;
 
 class RegistrationTest extends TestCase
 {
+    private const REGISTRATION_ACTION_FILE = "/../../action_scripts/registration_action.php";
+    private const STANDARD_PASSWORD = "Test@1234";
+
     private $conn;
 
     // Database connection setup
     protected function setUp(): void
     {
-        require __DIR__ . "/../../include/config.php";
+        // Initialise database configuration
+        $databaseHost = getenv('DB_HOST') ?: 'localhost';
+        $databaseUsername = getenv('DB_USERNAME') ?: 'root';
+        $databasePassword = getenv('DB_PASSWORD') ?: '';
+        $databaseName = getenv('DB_DATABASE') ?: 'mystudykpi';
+
+        // Create database connection
         $this->conn = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
         }
 
-        // Clear the account table for consistent testing
+        // Clear the account and profile table for consistent testing
         $this->conn->query("DELETE FROM account");
+        $this->conn->query("DELETE FROM profile");
     }
 
     // Close database connection
@@ -32,8 +43,8 @@ class RegistrationTest extends TestCase
         $_POST = [
             "matricNumber" => "BI21110235",
             "accountEmail" => "chiew_cheng_bi21@iluv.ums.edu.my",
-            "accountPassword" => "Test@1234",
-            "reenterPassword" => "Test@1234"
+            "accountPassword" => self::STANDARD_PASSWORD,
+            "reenterPassword" => self::STANDARD_PASSWORD
         ];
 
         // Mock the HTTP request method
@@ -45,7 +56,7 @@ class RegistrationTest extends TestCase
 
         // Start buffering to capture script output
         ob_start();
-        require __DIR__ . "/../../action_scripts/registration_action.php";
+        require __DIR__ . self::REGISTRATION_ACTION_FILE;
         ob_get_clean();
 
         // Push the POST data to the database, then verify it was actually inserted
@@ -66,7 +77,7 @@ class RegistrationTest extends TestCase
         $stmt = $this->conn->prepare("INSERT INTO account (matricNumber, accountEmail, accountPwd) VALUES (?, ?, ?)");
         $matricNumber = "BI21110236";
         $email = "existinguser@iluv.ums.edu.my";
-        $passwordHash = password_hash("Test@1234", PASSWORD_DEFAULT);
+        $passwordHash = password_hash(self::STANDARD_PASSWORD, PASSWORD_DEFAULT);
         $stmt->bind_param("sss", $matricNumber, $email, $passwordHash);
         $stmt->execute();
 
@@ -74,15 +85,15 @@ class RegistrationTest extends TestCase
         $_POST = [
             "matricNumber" => "BI21110236",
             "accountEmail" => "newuser@iluv.ums.edu.my",
-            "accountPassword" => "Test@1234",
-            "reenterPassword" => "Test@1234"
+            "accountPassword" => self::STANDARD_PASSWORD,
+            "reenterPassword" => self::STANDARD_PASSWORD
         ];
         $_SERVER["REQUEST_METHOD"] = "POST";
         global $conn;
         $conn = $this->conn;
 
         ob_start();
-        require __DIR__ . "/../../action_scripts/registration_action.php";
+        require __DIR__ . self::REGISTRATION_ACTION_FILE;
         $output = ob_get_clean();
 
         // Assert duplicate matric number error message
@@ -95,7 +106,7 @@ class RegistrationTest extends TestCase
         $_POST = [
             "matricNumber" => "BI21110237",
             "accountEmail" => "pwmismatch@iluv.ums.edu.my",
-            "accountPassword" => "Test@1234",
+            "accountPassword" => self::STANDARD_PASSWORD,
             "reenterPassword" => "Wrong@1234"
         ];
         $_SERVER["REQUEST_METHOD"] = "POST";
@@ -103,13 +114,13 @@ class RegistrationTest extends TestCase
         $conn = $this->conn;
 
         ob_start();
-        require __DIR__ . "/../../action_scripts/registration_action.php";
+        require __DIR__ . self::REGISTRATION_ACTION_FILE;
         $output = ob_get_clean();
 
         $this->assertStringContainsString(
-            "ERROR: Passwords do not match. Please try again.", 
+            "ERROR: Passwords do not match. Please try again.",
             $output,
-            "The error message for mismatched passwords was not found."    
+            "The error message for mismatched passwords was not found."
         );
     }
 }
