@@ -1,6 +1,31 @@
 <?php
     session_start();
     include("include/config.php");
+
+    // Define constants for reusable HTML strings and queries
+    define("ACTIVITY_QUERY", "SELECT * FROM activity WHERE accountID='");
+    define("TABLE_HEADER", "
+        <tr>
+            <th>No.</th>
+            <th>Session</th>
+            <th>Level</th>
+            <th>Details</th>
+            <th>Remarks</th>
+            <th>Image</th>
+            <th>&nbsp;</th>
+        </tr>
+    ");
+    define("TABLE_ROW_START", "<tr><td>");
+    define("SESSION_YEAR", "</td><td>Sem ");
+    define("YEAR_LABEL", " Year ");
+    define("ROW_CELL_START", "</td><td>");
+    define("ROW_CELL_END", "</td>");
+    define("IMAGE_CELL_START", "<td style='text-align: center'><a id='image' title='Open image' href='show_activity_image.php?id=");
+    define("IMAGE_CELL_END", "' target='blank'><i class='fa fa-image'></i></a></td>");
+    define("EMPTY_CELL", "<td>&nbsp;</td>");
+    define("ACTION_CELL_START", "<td style='text-align: center'><a id='edit' title='Edit' href='activitieslist_edit.php?id=");
+    define("ACTION_CELL_END", "'><i class='fa fa-pencil-square-o'></i></a><a id='remove' title='Remove' onclick='confirmRemoval(");
+    define("ACTION_CELL_CLOSE", ")'><i class='fa fa-trash-o'></i></a></td>");
 ?>
 
 <!DOCTYPE HTML>
@@ -195,10 +220,12 @@
 
 <body>
     <header>
-        <img class="header" src="images/activitieslistheader.png">
+        <img class="header" src="images/activitieslistheader.png" alt="Activities List Header">
     </header>
     <nav class="topnav" id="myTopnav">
-        <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png"></a>
+        <a href="index.php" class="logo">
+            <img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo">
+        </a>
         <a href="aboutme.php" class="tabs">About Me</a>
         <a href="kpimodule.php" class="tabs">MyKPI Indicator Module</a>
         <a href="activitieslist.php" class="active">Activities List</a>
@@ -231,27 +258,18 @@
                 <div id="activitiesTable-container">
                     <table id="activitiesTable">
                         <?php
-                            $fetchActivitiesQuery = "SELECT * FROM activity WHERE accountID='".$accountID."' AND activityType='1'";
+                            // Fetch activities
+                            $fetchActivitiesQuery = ACTIVITY_QUERY . $accountID . "' AND activityType='1'";
                             $activitiesResult = mysqli_query($conn, $fetchActivitiesQuery);
+                            
                             if (mysqli_num_rows($activitiesResult) > 0) {
-                                echo "
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                        <th>&nbsp;</th>
-                                    </tr>
-                                ";
+                                echo TABLE_HEADER;
 
                                 $rowIndex = 1;
-
                                 while ($row = mysqli_fetch_assoc($activitiesResult)) {
                                     $editID = $removeID = $imageID = $row["activityID"];
 
-                                    // this block is to determine the output for activityLevel
+                                    // Determine the output for activityLevel
                                     $levelOutput = '';
                                     switch($row["activityLevel"]) {
                                         case "1": $levelOutput = "Faculty"; break;
@@ -261,46 +279,25 @@
                                         default: $levelOutput = "";
                                     }
 
-                                    echo "
-                                        <tr>
-                                            <td>".$rowIndex."</td>
-                                            <td>Sem ".$row["activitySem"]." Year ".$row["activityYear"]."</td>
-                                            <td>".$levelOutput."</td>
-                                            <td>".$row["activityDetails"]."</td>
-                                            <td>".$row["activityRemarks"]."</td>
-                                    ";
+                                    echo TABLE_ROW_START . $rowIndex . SESSION_YEAR . $row["activitySem"] . YEAR_LABEL . $row["activityYear"] . ROW_CELL_START . 
+                                        $levelOutput . ROW_CELL_START . $row["activityDetails"] . ROW_CELL_START . $row["activityRemarks"];
 
+                                    // Image cell
                                     if ($row["activityImagePath"] != '') {
-                                        echo "
-                                            <td style='text-align: center'>
-                                                <a id='image' title='Open image' href='show_activity_image.php?id=".$imageID."' target='blank'><i class='fa fa-image'></i></a>
-                                            </td>
-                                        ";
-                                    }
-                                    else {
-                                        echo "<td>&nbsp;</td>";
+                                        echo IMAGE_CELL_START . $imageID . IMAGE_CELL_END;
+                                    } else {
+                                        echo EMPTY_CELL;
                                     }
 
-                                    echo "
-                                        <td style='text-align: center'>
-                                            <a id='edit' title='Edit' href='activitieslist_edit.php?id=".$editID."'><i class='fa fa-pencil-square-o'></i></a>
-                                            <a id='remove' title='Remove' onclick='confirmRemoval($removeID)'><i class='fa fa-trash-o'></i></a>
-                                        </td>
-                                    ";
+                                    // Action cell
+                                    echo ACTION_CELL_START . $editID . ACTION_CELL_END . $removeID . ACTION_CELL_CLOSE . ROW_CELL_END;
 
                                     $rowIndex++;
                                 }
-                            }
-                            else {  // if the query returns no rows
+                            } else {
+                                // No activities
+                                echo TABLE_HEADER;
                                 echo "
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Session</th>
-                                        <th>Level</th>
-                                        <th>Details</th>
-                                        <th>Remarks</th>
-                                        <th>Image</th>
-                                    </tr>
                                     <tr>
                                         <td colspan='6'>No activities have been added yet.</td>
                                     </tr>
