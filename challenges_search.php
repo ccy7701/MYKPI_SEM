@@ -134,6 +134,13 @@
         text-align: right;
         font-family: Jost, monospace;
     }
+    button.icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font: inherit;
+        }
     @media screen and (max-width: 600px) {
         #challengeForm-container {
             padding-left: 10%;
@@ -160,7 +167,7 @@
         <a href="activitieslist.php" class="tabs">Activities List</a>
         <a href="challenges.php" class="active">Challenges and Future Plans</a>
         <a href="logout.php" class="tabs">Logout</a>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
+        <button type="button" class="icon" onclick="adjustTopnav()" aria-label="Adjust Top Navigation"></button>
     </nav>
     <main>
         <?php
