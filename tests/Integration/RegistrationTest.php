@@ -4,7 +4,6 @@ namespace Tests;
 
 class RegistrationTest extends BaseTest
 {
-    private const REGISTRATION_ACTION_FILE = "/../../action_scripts/registration_action.php";
     private const STANDARD_PASSWORD = "Test@1234";
 
     // Test case for successful registration
@@ -27,7 +26,7 @@ class RegistrationTest extends BaseTest
 
         // Start buffering to capture script output
         ob_start();
-        require __DIR__ . self::REGISTRATION_ACTION_FILE;
+        require self::REGISTRATION_ACTION_FILE;
         ob_get_clean();
 
         // Push the POST data to the database, then verify it was actually inserted
@@ -64,7 +63,7 @@ class RegistrationTest extends BaseTest
         $conn = $this->conn;
 
         ob_start();
-        require __DIR__ . self::REGISTRATION_ACTION_FILE;
+        require self::REGISTRATION_ACTION_FILE;
         $output = ob_get_clean();
 
         // Assert duplicate matric number error message
@@ -85,7 +84,7 @@ class RegistrationTest extends BaseTest
         $conn = $this->conn;
 
         ob_start();
-        require __DIR__ . self::REGISTRATION_ACTION_FILE;
+        require self::REGISTRATION_ACTION_FILE;
         $output = ob_get_clean();
 
         $this->assertStringContainsString(
