@@ -62,7 +62,7 @@
         <?php
             include("include/login_session_check.php");
         ?>
-        <button type="button" class="icon" onclick="adjustTopnav()" aria-label="Adjust Top Navigation"></button>
+        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
     </nav>
     <main>
         <div id="center-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">

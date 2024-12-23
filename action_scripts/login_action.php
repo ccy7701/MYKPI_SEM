@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../include/config.php");
+    include __DIR__ . "/../include/config.php";
 ?>
 
 <!DOCTYPE HTML>

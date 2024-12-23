@@ -64,11 +64,8 @@
         <a href="kpimodule.php" class="tabs">MyKPI Indicator Module</a>
         <a href="activitieslist.php" class="tabs">Activities List</a>
         <a href="challenges.php" class="tabs">Challenges and Future Plans</a>
-        <a href="logout.php" class="tabs">Logout</a>
-        
-        <button type="button" class="icon" onclick="adjustTopnav()" aria-label="Toggle Navigation">
-            <i class="fa fa-bars"></i>
-        </button>
+        <a href="logout.php" class="tabs">Logout</a>  
+        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
     </nav>
     <main>
         <h3 style="text-align: center">Edit Personal Info</h3>

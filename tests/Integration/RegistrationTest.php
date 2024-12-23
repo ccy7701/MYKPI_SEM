@@ -1,40 +1,11 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace Tests;
 
-class RegistrationTest extends TestCase
+class RegistrationTest extends BaseTest
 {
     private const REGISTRATION_ACTION_FILE = "/../../action_scripts/registration_action.php";
     private const STANDARD_PASSWORD = "Test@1234";
-
-    private $conn;
-
-    // Database connection setup
-    protected function setUp(): void
-    {
-        // Initialise database configuration
-        $databaseHost = getenv('DB_HOST') ?: 'localhost';
-        $databaseUsername = getenv('DB_USERNAME') ?: 'root';
-        $databasePassword = getenv('DB_PASSWORD') ?: '';
-        $databaseName = getenv('DB_DATABASE') ?: 'mystudykpi';
-
-        // Create database connection
-        $this->conn = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName);
-
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
-        }
-
-        // Clear the account and profile table for consistent testing
-        $this->conn->query("DELETE FROM account");
-        $this->conn->query("DELETE FROM profile");
-    }
-
-    // Close database connection
-    protected function tearDown(): void
-    {
-        $this->conn->close();
-    }
 
     // Test case for successful registration
     public function testValidRegistration()

@@ -60,4 +60,4 @@ jobs:
           DB_DATABASE: mystudykpi
           DB_USERNAME: test_user
           DB_PASSWORD: test_password
-        run: vendor/bin/phpunit --configuration phpunit.xml --colors=always
+        run: vendor/bin/phpunit --testdox --configuration phpunit.xml --colors=always
