@@ -27,7 +27,7 @@
         $return = mysqli_query($conn, $imgPathSeekQuery);
         $row = mysqli_fetch_assoc($return);
         $imgToDelete = "../".$row["challengeImagePath"];
-        if ($imgToDelete != "") {
+        if (!empty($row["challengeImagePath"] && is_file($imgToDelete))) {
             unlink($imgToDelete);
         }
 

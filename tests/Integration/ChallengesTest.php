@@ -5,6 +5,7 @@ namespace Tests;
 class ChallengesTest extends BaseTest
 {
     private const CHLG_SUBMIT_ACTION_FILE = __DIR__ . "/../../action_scripts/challenge_submit_action.php";
+    private const CHLG_REMOVE_ACTION_FILE = __DIR__ . "/../../action_scripts/challenge_remove_action.php";
 
     /**
      * Function to push test 'challenge' data
@@ -76,6 +77,62 @@ class ChallengesTest extends BaseTest
         $this->assertEquals('Test new challenge', $row['challengeDetails']);
         $this->assertEquals('Test new future plan', $row['challengeFuturePlan']);
         $this->assertEquals($sessionAccountID, $row['accountID']);
+
+        // Clean up session
+        $this->cleanUpSession();
+    }
+
+    /**
+     * @runInSeparateProcess
+     * Test for successful deletion of existing challenge
+     */
+    public function testDeleteChallenge()
+    {
+        // Create dummy account and log it in
+        $this->createDummyAccount(
+            'BI21110026',
+            'delete_challenge@iluv.ums.edu.my',
+            self::STANDARD_PASSWORD
+        );
+        $loginResult = $this->attemptLogin('BI21110026', self::STANDARD_PASSWORD);
+
+        // Assert successful login
+        $this->assertNotEmpty($loginResult['session']["UID"]);
+        $sessionAccountID = $loginResult['session']["UID"];
+
+        // Push a dummy challenge
+        $this->pushTestChallengeData($sessionAccountID, [
+            'challengeSem' => 2,
+            'challengeYear' => 4,
+            'challengeDetails' => 'Test internship challenge',
+            'challengeFuturePlan' => 'Commit to internship',
+            'challengeRemark' => 'Test remark',
+        ]);
+
+        // Assert that the data was inserted
+        $result = $this->fetchChallengeByDetails($sessionAccountID, 'Test internship challenge');
+        $this->assertEquals(1, $result->num_rows);
+
+        // Then, simulate deletion
+        $row = $result->fetch_assoc();
+        $challengeID = $row['challengeID'];
+        $challengeImagePath = $row['challengeImagePath'];
+
+        // Simulate deletion
+        $_GET['id'] = $challengeID;
+        $_SERVER["REQUEST_METHOD"] = "GET";
+        
+        global $conn;
+        $conn = $this->conn;
+
+        // Include the action script
+        ob_start();
+        require self::CHLG_REMOVE_ACTION_FILE;
+        ob_get_clean();
+
+        // Assert that the challenge was removed
+        $result = $this->fetchChallengeByDetails($sessionAccountID, 'Test internship challenge');
+        $this->assertEquals(0, $result->num_rows);
 
         // Clean up session
         $this->cleanUpSession();
