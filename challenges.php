@@ -1,10 +1,4 @@
 <?php
-    // NEW ADDITIONS TO CHALLENGES:
-    // 1. Search function
-    // 2. Photos column
-?>
-
-<?php
     session_start();
     include("include/config.php");
 ?>
@@ -19,7 +13,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="sitejavascript.js"></script>
+    <script src="js/sitejavascript.js"></script>
+    <script src="js/topnav.js"></script>
     <script type="text/javascript">
         function createPath(target) {
             let scriptPath = "action_scripts/challenge_remove_action.php?id=";
@@ -153,7 +148,7 @@
         <a href="activitieslist.php" class="tabs">Activities List</a>
         <a href="challenges.php" class="active">Challenges and Future Plans</a>
         <a href="logout.php" class="tabs">Logout</a>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
+        <a href="#menu" id="topnav-collapse-btn" class="icon" aria-label="Toggle navigation menu"><i class="fa fa-bars"></i></a>
     </nav>
     <main>
         <br>

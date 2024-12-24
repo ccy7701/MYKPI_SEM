@@ -1,7 +1,7 @@
 // external JavaScript document (sitejavascript.js)
 
 function adjustTopnav() {
-    var x = document.getElementById("myTopnav");
+    let x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
         x.className += " responsive";
     }
