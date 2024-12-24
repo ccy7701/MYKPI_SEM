@@ -5,8 +5,6 @@ namespace Tests;
 class AboutMeTest extends BaseTest
 {
     private const ABOUTME_EDIT_ACTION_FILE = __DIR__ . "/../../action_scripts/aboutme_edit_personal_action.php";
-    
-    private const STANDARD_PASSWORD = "Test@1234";
 
     /**
      * @runInSeparateProcess
@@ -64,8 +62,7 @@ class AboutMeTest extends BaseTest
         $this->assertEquals('uploads/profile_images/default.png', $profile['profileImagePath']);
 
         // Clean up session
-        session_unset();
-        session_destroy();
+        $this->cleanUpSession();
     }
 
     /**
@@ -126,7 +123,6 @@ class AboutMeTest extends BaseTest
         $this->assertFileExists("../", $expectedFilePath, "Uploaded file does not exist in the specified location");
 
         // Clean up session
-        session_unset();
-        session_destroy();
+        $this->cleanUpSession();
     }
 }

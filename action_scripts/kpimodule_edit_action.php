@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    include("../include/config.php");
+    if (session_status() === PHP_SESSION_NONE) { session_start(); }
+    include __DIR__ . "/../include/config.php";
 ?>
 
 <!DOCTYPE HTML>
@@ -8,7 +8,7 @@
 
 <head>
     <title>Edit Indicator Record</title>
-    <script src="../sitejavascript.js"></script>
+    <script src="../js/sitejavascript.js"></script>
 </head>
 
 <body>

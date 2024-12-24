@@ -4,8 +4,6 @@ namespace Tests;
 
 class LoginTest extends BaseTest
 {
-    private const STANDARD_PASSWORD = "Test@1234";
-
     /**
      * @runInSeparateProcess
      * @testdox Login with valid credentials
@@ -33,8 +31,7 @@ class LoginTest extends BaseTest
         $this->assertEquals('BI21110001', $loginResult['session']['userName']);
 
         // Clean up session
-        session_unset();
-        session_destroy();
+        $this->cleanUpSession();
     }
 
     /**
@@ -58,7 +55,6 @@ class LoginTest extends BaseTest
         $this->assertEmpty($loginResult['session']);
 
         // Clean up session
-        session_unset();
-        session_destroy();
+        $this->cleanUpSession();
     }
 }

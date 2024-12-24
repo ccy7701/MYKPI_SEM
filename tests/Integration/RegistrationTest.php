@@ -4,8 +4,6 @@ namespace Tests;
 
 class RegistrationTest extends BaseTest
 {
-    private const STANDARD_PASSWORD = "Test@1234";
-
     // Test case for successful registration
     public function testValidRegistration()
     {

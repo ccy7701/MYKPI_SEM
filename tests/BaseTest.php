@@ -9,6 +9,7 @@ abstract class BaseTest extends TestCase
     protected const REGISTRATION_ACTION_FILE = __DIR__ . "/../action_scripts/registration_action.php";
     protected const LOGIN_ACTION_FILE = __DIR__ . "/../action_scripts/login_action.php";
 
+    protected const STANDARD_PASSWORD = "Test@1234";
     protected $conn;
 
     // Database connection setup
@@ -82,6 +83,13 @@ abstract class BaseTest extends TestCase
         return ['session' => $_SESSION];
     }
 
+    // Clean up session
+    protected function cleanUpSession()
+    {
+        session_unset();
+        session_destroy();
+    }
+
     // Fetch account with the given matric number
     protected function fetchAccount($matricNumber)
     {
@@ -97,6 +105,30 @@ abstract class BaseTest extends TestCase
     {
         $stmt = $this->conn->prepare("SELECT * FROM profile WHERE accountID = ?");
         $stmt->bind_param("i", $accountID);
+        $stmt->execute();
+
+        return $stmt->get_result();
+    }
+
+    // Fetch activity by accountID and activity type
+    protected function fetchActivityByType($accountID, $activityType)
+    {
+        $stmt = $this->conn->prepare(
+            "SELECT * FROM activity WHERE accountID = ? AND activityType = ?"
+        );
+        $stmt->bind_param("ii", $accountID, $activityType);
+        $stmt->execute();
+        
+        return $stmt->get_result();
+    }
+
+    // Fetch activity by accountID and activity details
+    protected function fetchActivityByDetails($accountID, $activityDetails)
+    {
+        $stmt = $this->conn->prepare(
+            "SELECT * FROM activity WHERE accountID = ? AND activityDetails = ?"
+        );
+        $stmt->bind_param("is", $accountID, $activityDetails);
         $stmt->execute();
 
         return $stmt->get_result();

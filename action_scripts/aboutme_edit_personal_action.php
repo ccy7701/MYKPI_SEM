@@ -8,7 +8,7 @@
 
 <head>
     <title>Edit Confirmation</title>
-    <script src="../sitejavascript.js"></script>
+    <script src="../js/sitejavascript.js"></script>
 </head>
 
 <body>
