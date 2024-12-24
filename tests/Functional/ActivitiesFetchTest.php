@@ -32,9 +32,9 @@ class ActivitiesFetchTest extends BaseTest
         $activityYear = 1;
 
         $stmt = $this->conn->prepare(
-            "INSERT INTO activity 
-             (accountID, activityType, activityLevel, activityDetails, activityRemarks, activityImagePath, activitySem, activityYear) 
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO activity
+            (accountID, activityType, activityLevel, activityDetails, activityRemarks, activityImagePath, activitySem, activityYear)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         );
         $stmt->bind_param(
             "iissssii",

@@ -145,4 +145,34 @@ abstract class BaseTest extends TestCase
 
         return $stmt->get_result();
     }
+
+    // Fetch indicators by accountID and optional sem and year
+    protected function fetchIndicators($accountID, $sem = null, $year = null)
+    {
+        // Base query
+        $query = "SELECT * FROM indicator WHERE accountID = ?";
+        $params = [$accountID];
+        $types = "i";
+
+        // Optional semester parameter
+        if ($sem != null) {
+            $query .= " AND indicatorSem = ?";
+            $params[] = $sem;
+            $types .= "i";
+        }
+
+        // Optional year parameter
+        if ($year != null) {
+            $query .= " AND indicatorYear = ?";
+            $params[] = $year;
+            $types .= "i";
+        }
+
+        // Prepare and execute the query
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+
+        return $stmt->get_result();
+    }
 }
