@@ -15,7 +15,6 @@ define('NOT_FILLED', 'Not filled yet');
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="sitejavascript.js"></script>
     <style>
         #tblprofile {
             text-align: left;
@@ -73,6 +72,8 @@ define('NOT_FILLED', 'Not filled yet');
             font: inherit;
         }
     </style>
+    <script src="sitejavascript.js"></script>
+    <script src="topnav.js"></script>
 </head>
 
 <body>
@@ -86,7 +87,8 @@ define('NOT_FILLED', 'Not filled yet');
         <a href="activitieslist.php" class="tabs">Activities List</a>
         <a href="challenges.php" class="tabs">Challenges and Future Plans</a>
         <a href="logout.php" class="tabs">Logout</a>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()">
+        <a href="#menu" id="topnav-collapse-btn" class="icon" aria-label="Toggle navigation menu"
+        tabindex="0">
             <i class="fa fa-bars"></i>
         </a>
     </nav>
@@ -196,18 +198,9 @@ define('NOT_FILLED', 'Not filled yet');
                 <br>
                 <table id="tblprofile" style="width: 100%;">
                     <caption><h4>Study Motto</h4></caption>
-                    <thead>
-                        <tr>
-                            <th>Study Motto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="text-align: center;">
-                                <?php echo ($motto != '') ? $motto : NOT_FILLED; ?>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tr>
+                        <th style="text-align: center; font-weight: normal;"><?php echo ($motto != '') ? $motto : NOT_FILLED; ?></th>
+                    </tr>
                 </table>
                 <br>
                 <div id="center-container" style="text-align: center; width: 100%;">
@@ -219,7 +212,7 @@ define('NOT_FILLED', 'Not filled yet');
         </div>
     </main>
     <footer>
-            <h5>© Chiew Cheng Yi | BI21110236 | KK34703 Individual Project</h5>
+        <h5>© Group 3 | KK45103 Group Assignment</h5>
     </footer>
 </body>
 

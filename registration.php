@@ -145,7 +145,7 @@
         </div>
     </main>
     <footer style="position: fixed; bottom: 0;">
-        <h5>© Chiew Cheng Yi | BI21110236 | KK34703 Individual Project</h5>
+        <h5>© Group 3 | KK45103 Group Assignment</h5>
     </footer>
 </body>
 
