@@ -133,4 +133,16 @@ abstract class BaseTest extends TestCase
 
         return $stmt->get_result();
     }
+
+    // Fetch challenge by accountID and challenge details
+    protected function fetchChallengeByDetails($accountID, $challengeDetails)
+    {
+        $stmt = $this->conn->prepare(
+            "SELECT * FROM challenge WHERE accountID = ? AND challengeDetails = ?"
+        );
+        $stmt->bind_param("is", $accountID, $challengeDetails);
+        $stmt->execute();
+
+        return $stmt->get_result();
+    }
 }

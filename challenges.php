@@ -1,10 +1,4 @@
 <?php
-    // NEW ADDITIONS TO CHALLENGES:
-    // 1. Search function
-    // 2. Photos column
-?>
-
-<?php
     session_start();
     include("include/config.php");
 ?>
