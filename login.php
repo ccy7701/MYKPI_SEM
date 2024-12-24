@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="sitejavascript.js"></script>
+    <script src="js/sitejavascript.js"></script>
+    <script src="js/topnav.js"></script>
 </head>
 
 <body>
@@ -17,8 +18,8 @@
     </header>
     <nav class="topnav" id="myTopnav">
         <a href="index.php" class="logo"><img src="images/mystudykpi-topnavbtn-2-white.png" alt="MyStudyKPI Logo"></a>
-        <a href="login.php" class="active">Login</a>
-        <a href="javascript:void(0);" class="icon" onClick="adjustTopnav()"><i class="fa fa-bars"></i></a>
+        <a href="login.php" class="tabs">Login</a>
+        <a href="#menu" id="topnav-collapse-btn" class="icon" aria-label="Toggle navigation menu"><i class="fa fa-bars"></i></a>
     </nav>
     <main>
         <div id="center-content" style="text-align: center;">

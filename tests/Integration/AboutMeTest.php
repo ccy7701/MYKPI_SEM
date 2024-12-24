@@ -8,39 +8,6 @@ class AboutMeTest extends BaseTest
     
     private const STANDARD_PASSWORD = "Test@1234";
 
-    private function seedProfileData($accountID, $data)
-    {
-        // Build an SQL query to insert user data into the profile table
-        $query = "INSERT INTO profile (
-            username, program, intakeBatch, phoneNumber,
-            mentor, profileState, profileAddress, motto,
-            profileImagePath, accountID
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        // Prepare the query
-        $stmt = $this->conn->prepare($query);
-
-        // Bind the data dynamically
-        $stmt->bind_param('ssissssssi',
-            $data['username'],
-            $data['program'],
-            $data['intakeBatch'],
-            $data['phoneNumber'],
-            $data['mentor'],
-            $data['profileState'],
-            $data['profileAddress'],
-            $data['motto'],
-            $data['profileImagePath'],
-            $accountID
-        );
-
-        // Execute the query
-        $stmt->execute();
-
-        // Clean up
-        $stmt->close();
-    }
-
     /**
      * @runInSeparateProcess
      * Test updating the user's About Me information without uploading an image
