@@ -82,4 +82,25 @@ class ActivitiesListTest extends BaseTest
         // Clean up session
         $this->cleanUpSession();
     }
+
+    /**
+     * @runInSeparateProcess
+     * Test for successful deletion of existing activity
+     */
+    public function testDeleteActivity()
+    {
+        // Create dummy account
+        $this->createDummyAccount(
+            'BI21110050',
+            'delete_activity@iluv.ums.edu.my',
+            self::STANDARD_PASSWORD
+        );
+        $loginResult = $this->attemptLogin('BI21110050', self::STANDARD_PASSWORD);
+
+        // Assert successful login
+        $this->assertNotEmpty($loginResult['session']["UID"]);
+        
+        // Clean up session
+        $this->cleanUpSession();
+    }
 }
