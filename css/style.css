@@ -78,7 +78,7 @@ footer {
     padding: 14px 16px;
 }
 
-#loginform #btnlogin, #regform #btnreg, #editPersonalInfo #btnedit {
+#loginform, #regform #btnreg, #editPersonalInfo #btnedit {
     height: 40px;
     background-color: white;
     border: 1px solid black;
@@ -88,13 +88,13 @@ footer {
     transition: background-color 0.1s, color 0.1s;
 }
 
-#loginform #btnlogin:hover, #regform #btnreg:hover, #editPersonalInfo #btnedit:hover {
+#loginform, #regform #btnreg:hover, #editPersonalInfo #btnedit:hover {
     cursor: pointer;
     background-color: #333333;
     color: white;
 }
 
-#loginform #fieldlogin, #regform #fieldreg,
+#loginform, #regform #fieldreg,
 #regform #selectreg, #editPersonalInfo #editfield,
 #editPersonalInfo #select, #editChallengeRecord #editfield,
 #editChallengeRecord #select, #editActivityRecord #editfield,
@@ -144,6 +144,93 @@ footer {
     background-color: #333333;
     color: white;
 }
+
+
+/*Index.php imported css*/
+.block {
+    text-align: center;
+    background-color: #D9DADB;
+    color: black;
+    width: 50%;
+    transition: background-color 0.1s;
+    color: 0.1s;
+}
+
+.block:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.block i {
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    font-size: 100px;
+}
+
+.block p {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+button.icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+}
+
+#center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 720px) {  /* CSS when pages are resized to smaller or for mobile screen */
+    .block {
+        width: 75%;
+    }
+}
+
+/*End of Index.php*/
+
+
+
+/*Login.php*/
+
+#center-content-login {
+    text-align: center;
+}
+
+.fieldlogin{
+    height: 30px;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: Jost, monospace; 
+}
+
+.btnlogin{
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    width: 25%;
+    font-size: 16px;
+    font-family: Jost, monospace;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.btnlogin:hover{
+    cursor: pointer;
+    background-color: #333333;
+    color: white;
+}
+/*End login.php*/
 
 @media screen and (max-width: 600px) {  /* CSS when pages are resized to smaller or for mobile screen */
     .topnav a:not(:first-child) {
