@@ -22,14 +22,14 @@
         <a href="#menu" id="topnav-collapse-btn" class="icon" aria-label="Toggle navigation menu"><i class="fa fa-bars"></i></a>
     </nav>
     <main>
-        <div id="center-content" style="text-align: center;">
+        <div id="center-content-login">
             <h4>Login to view all your information</h4>
             <div id="logindiv">
                 <form id="loginform" action="action_scripts/login_action.php" method="post">
-                    <input id="fieldlogin" name="loginmatric" type="text" placeholder="Matric Number" required></textarea><br>
-                    <input id="fieldlogin" name="loginpassword" type="password" placeholder="Password" required><br>
-                    <input id="btnlogin" name="loginsubmit" type="submit" value="LOGIN">
-                    <input id="btnlogin" name="loginreset" type="reset" value="CLEAR"><br>
+                    <input class="fieldlogin" name="loginmatric" type="text" placeholder="Matric Number" required><br>
+                    <input class="fieldlogin" name="loginpassword" type="password" placeholder="Password" required><br>
+                    <input class="btnlogin" name="loginsubmit" type="submit" value="LOGIN">
+                    <input class="btnlogin" name="loginreset" type="reset" value="CLEAR"><br>
                 </form>
             </div>
 
