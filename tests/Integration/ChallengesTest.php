@@ -98,10 +98,9 @@ class ChallengesTest extends BaseTest
 
         // Assert successful login
         $this->assertNotEmpty($loginResult['session']["UID"]);
-        $sessionAccountID = $loginResult['session']["UID"];
 
         // Push a dummy challenge
-        $this->pushTestChallengeData($sessionAccountID, [
+        $this->pushTestChallengeData($loginResult['session']["UID"], [
             'challengeSem' => 2,
             'challengeYear' => 4,
             'challengeDetails' => 'Test internship challenge',
@@ -110,13 +109,12 @@ class ChallengesTest extends BaseTest
         ]);
 
         // Assert that the data was inserted
-        $result = $this->fetchChallengeByDetails($sessionAccountID, 'Test internship challenge');
+        $result = $this->fetchChallengeByDetails($loginResult['session']["UID"], 'Test internship challenge');
         $this->assertEquals(1, $result->num_rows);
 
         // Then, simulate deletion
         $row = $result->fetch_assoc();
         $challengeID = $row['challengeID'];
-        $challengeImagePath = $row['challengeImagePath'];
 
         // Simulate deletion
         $_GET['id'] = $challengeID;
@@ -131,7 +129,7 @@ class ChallengesTest extends BaseTest
         ob_get_clean();
 
         // Assert that the challenge was removed
-        $result = $this->fetchChallengeByDetails($sessionAccountID, 'Test internship challenge');
+        $result = $this->fetchChallengeByDetails($loginResult['session']["UID"], 'Test internship challenge');
         $this->assertEquals(0, $result->num_rows);
 
         // Clean up session
