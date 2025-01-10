@@ -15,44 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/sitejavascript.js"></script>
     <script src="js/topnav.js"></script>
-    <style>
-        .block {
-            text-align: center;
-            background-color: #D9DADB;
-            color: black;
-            width: 50%;
-            transition: background-color 0.1s;
-            color: 0.1s;
-        }
-        .block:hover {
-            background-color: #555555;
-            color: white;
-        }
-        .block i {
-            text-align: left;
-            margin-left: 20px;
-            margin-right: 20px;
-            padding-top: 10px;
-            font-size: 100px;
-        }
-        .block p {
-            margin-left: 20px;
-            margin-right: 20px;
-            font-size: 18px;
-        }
-        button.icon {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            font: inherit;
-        }
-        @media screen and (max-width: 720px) {  /* CSS when pages are resized to smaller or for mobile screen */
-            .block {
-                width: 75%;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -63,19 +25,19 @@
         <?php
             include("include/login_session_check.php");
         ?>
-        <a href="#menu" id="topnav-collapse-btn" class="icon" aria-label="Toggle navigation menu"><i class="fa fa-bars"></i></a>
+        <button href="#menu" id="topnav-collapse-btn" class="icon" aria-label="Toggle navigation menu"><i class="fa fa-bars"></i></button>
     </nav>
     <main>
-        <div id="center-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div id="center-content">
             <?php
                 if (isset($_SESSION["UID"])) {
                     echo "
-                        <h1 style='text-align: center'>Welcome back</h1>
+                        <h1>Welcome back</h1>
                     ";
                 }
                 else {
                     echo "
-                        <h1 style='text-align: center'>Welcome to the UMS FKI MyStudyKPI website</h1>
+                        <h1>Welcome to the UMS FKI MyStudyKPI website</h1>
                     ";
                 }
             ?>
