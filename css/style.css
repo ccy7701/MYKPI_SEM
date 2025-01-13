@@ -78,7 +78,7 @@ footer {
     padding: 14px 16px;
 }
 
-#loginform, #regform #btnreg, #editPersonalInfo #btnedit {
+#loginform, #editPersonalInfo #btnedit {
     height: 40px;
     background-color: white;
     border: 1px solid black;
@@ -88,7 +88,7 @@ footer {
     transition: background-color 0.1s, color 0.1s;
 }
 
-#loginform, #regform #btnreg:hover, #editPersonalInfo #btnedit:hover {
+#loginform, #editPersonalInfo #btnedit:hover {
     cursor: pointer;
     background-color: #333333;
     color: white;
@@ -153,6 +153,7 @@ footer {
     color: black;
     width: 50%;
     transition: background-color 0.1s;
+    color: 0.1s;
 }
 
 .block:hover {
@@ -197,6 +198,8 @@ button.icon {
 
 /*End of Index.php*/
 
+
+
 /*Login.php*/
 
 #center-content-login {
@@ -228,6 +231,51 @@ button.icon {
     color: white;
 }
 /*End login.php*/
+
+/*Registration.php*/
+.regMatric, .regPassword {
+    height: 30px;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: Jost, monospace;
+}
+
+.regIns{
+    text-align: center;
+}
+
+.regDesc{
+    margin: 0;
+    font-size: 13px;
+}
+
+.fieldreg{
+    height: 30px;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: Jost, monospace;
+}
+
+.btnreg{
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    width: 25%;
+    font-size: 16px;
+    font-family: Jost, monospace;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.btnreg:hover{
+    cursor: pointer;
+    background-color: #333333;
+    color: white;
+}
+/*End registration.php*/
 
 @media screen and (max-width: 600px) {  /* CSS when pages are resized to smaller or for mobile screen */
     .topnav a:not(:first-child) {
