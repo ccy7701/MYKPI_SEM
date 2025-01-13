@@ -11,21 +11,6 @@
     <script src="js/sitejavascript.js"></script>
     <script src="js/topnav.js"></script>
     <style>
-        .regMatric, .regPassword {
-            height: 30px;
-            width: 100%;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 18px;
-            font-family: Jost, monospace;
-        }
-        button.icon {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            font: inherit;
-        }
     </style>
 </head>
 
@@ -116,30 +101,30 @@
         <a href="#menu" id="topnav-collapse-btn" class="icon" aria-label="Toggle navigation menu"><i class="fa fa-bars"></i></a>
     </nav>
     <main>
-        <h4 style="text-align: center;">Complete this form before accessing the MyStudyKPI system. Required fields are marked with (*)</h4>
+        <h4 class="regIns">Complete this form before accessing the MyStudyKPI system. Required fields are marked with (*)</h4>
         <div id="regformdiv">
             <form id="regform" onsubmit="doValidation(event);" action="action_scripts/registration_action.php" method="post">
                 <label for="matricNumber">Matric Number(*)</label><br>
                 <input class="regMatric" id="regMatric" name="matricNumber" type="text" required>
-                <p style="margin: 0; font-size: 13px;">Matric Number must be in the form of BIXXXXXXXX</p><br>
+                <p class="regDesc">Matric Number must be in the form of BIXXXXXXXX</p><br>
 
                 <label for="accountEmail">E-mail Address(*)</label><br>
-                <input id="fieldreg" name="accountEmail" type="email" required><br>
+                <input class="fieldreg" name="accountEmail" type="email" required><br>
 
                 <label for="accountPassword">Password (*)</label><br>
                 <input class="regPassword" id="regPassword" name="accountPassword" type="password" required>
-                <p style="margin: 0; font-size: 13px;">Password must meet the following criteria:</p>
-                <P style="margin: 0; font-size: 13px;">• At least 8 characters long</p>
-                <p style="margin: 0; font-size: 13px;">• At least one capital letter</p>
-                <p style="margin: 0; font-size: 13px;">• At least one digit</p>
-                <p style="margin: 0; font-size: 13px;">• At least one special character</p><br>
+                <p class="regDesc">Password must meet the following criteria:</p>
+                <P class="regDesc">• At least 8 characters long</p>
+                <p class="regDesc">• At least one capital letter</p>
+                <p class="regDesc">• At least one digit</p>
+                <p class="regDesc">• At least one special character</p><br>
 
                 <label for="reenterPassword">Reenter Password (*)</label><br>
-                <input id="fieldreg" name="reenterPassword" type="password" required><br>
+                <input class="fieldreg" name="reenterPassword" type="password" required><br>
 
                 <div id="center-content" style="text-align: center">
-                    <input id="btnreg" name="signupsubmit" type="submit" value="SUBMIT">
-                    <input id="btnreg" name="signupreset" type="reset" value="CLEAR">
+                    <input class="btnreg" name="signupsubmit" type="submit" value="SUBMIT">
+                    <input class="btnreg" name="signupreset" type="reset" value="CLEAR">
                 </div>
                 <br><br>
             </form>
